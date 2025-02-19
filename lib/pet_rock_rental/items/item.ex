@@ -10,10 +10,15 @@ defmodule PetRockRental.Items.Item do
   end
 
   actions do
-    defaults create: [:*]
+    defaults [:read]
+
+    create :create do
+      accept [:quantity, :price]
+    end
   end
 
   attributes do
+    uuid_primary_key :id
     attribute :quantity, :decimal
     attribute :price, :money
   end
